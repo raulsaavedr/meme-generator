@@ -19,7 +19,7 @@ input {
 
 button{
     grid-column: 1 / -1;
-    background: linear-gradient(90.41deg, #301f8d 1.14%, #4c18da 100%);
+    background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);   
     border-radius: 5px;
     color: white;
     border-style: none;
@@ -33,7 +33,7 @@ button{
 }
 
 button:hover {
-    background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);   
+    background: linear-gradient(90.41deg, #140085 1.14%, #3000b6 100%);   
 }
 
 button:active {
