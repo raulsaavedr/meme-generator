@@ -19,7 +19,7 @@ input {
 
 button{
     grid-column: 1 / -1;
-    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    background: linear-gradient(90.41deg, #301f8d 1.14%, #4c18da 100%);
     border-radius: 5px;
     color: white;
     border-style: none;
@@ -27,18 +27,17 @@ button{
     font-size: 16px;
     line-height: 19px;
     height: 32px;
-    
-    /* identical to box height */
     text-align: center;
     letter-spacing: -0.09em;
     margin-top: 15px; 
 }
 
 button:hover {
-    background: linear-gradient(90.41deg, #6a008d 1.14%, #a200d8 100%);    
+    background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);   
 }
 
 button:active {
+    background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);    
     box-shadow: 3px 4px rgba(102, 102, 102, 0.068);
     transform: translateY(3px);
 }

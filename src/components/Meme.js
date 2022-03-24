@@ -10,9 +10,6 @@ export default function Meme() {
         setUrl(data.data.memes[Math.floor(Math.random() * 100)].url);
         console.log(url);
     }
-    function hoverImage(event) {
-        console.log(`Hovering the image, (x: ${event.pageX} y: ${event.pageY})`);
-    }
 
     const getData = () => {
         fetch('https://api.imgflip.com/get_memes')
@@ -36,7 +33,7 @@ export default function Meme() {
                 <input type="text" placeholder="Bottom Text" />
                 <button onClick={handleGetImage}>Get a new meme image  🖼</button>
             </form>
-            <img onMouseOver={hoverImage} src={url} alt="" />
+            <img src={url} alt="" />
         </main>
     );
 }
