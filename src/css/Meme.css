@@ -26,9 +26,9 @@ button{
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    height: 32px;
+    height: 36px;
     text-align: center;
-    letter-spacing: -0.09em;
+    letter-spacing: -0.07em;
     margin-top: 15px; 
 }
 
@@ -42,8 +42,9 @@ button:active {
     transform: translateY(3px);
 }
 
-main img {
+main.img-editing {
     border: 2px solid rgba(102, 102, 102, 0.068);
+    width: 50%;
 }
 
 @media only screen and (min-width: 768px) {
