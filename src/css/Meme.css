@@ -15,6 +15,7 @@ input {
     border-radius: 5px;
     border: 1px solid #D5D4D8;
     height: 32px;
+    padding-left: 10px;
 }
 
 button{
@@ -42,19 +43,33 @@ button:active {
     transform: translateY(3px);
 }
 
-main.img-editing {
-    border: 2px solid rgba(102, 102, 102, 0.068);
-    width: 50%;
-}
+.img-editing {
+    border: 2px solid #f3f3f3;
+    max-width: 490px; 
+    height:auto;
 
+}
+@media only screen and (min-width: 600px) {
+    .img-editing{
+        align-self: center;
+    }
+}
 @media only screen and (min-width: 768px) {
     form {
         display: grid;
         grid-template: 2rem 2rem / 1fr 1fr;
         gap:17px;
     }
-
-    main img {
-        margin-top: 15px;
+    .img-editing{
+        place-self: center;    
+    }
+    form img {
+        margin-top: 10px;
+        width: 500px;
+        height: auto;
+    }
+    button {
+        width: 688px;
+        place-self: center;
     }
 }
