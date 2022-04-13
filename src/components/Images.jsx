@@ -5,7 +5,10 @@ function ImagesCarousel(props) {
   const images = props.memes.map((meme) => {
     return <img
       key={meme.id}
-      onClick={() => props.setUrl(meme.url)}
+      onClick={() => props.setMeme(prevState => ({
+        ...prevState,
+        urlImg: meme.url
+      }))}
       src={meme.url}
       className="images"
       alt="" />;

@@ -18,7 +18,7 @@ input {
     padding-left: 10px;
 }
 
-button{
+button, .save-img-btn{
     grid-column: 1 / -1;
     background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);   
     border-radius: 5px;
@@ -33,24 +33,63 @@ button{
     margin-top: 15px; 
 }
 
-button:hover {
+button:hover, .save-img-btn:hover {
     background: linear-gradient(90.41deg, #140085 1.14%, #3000b6 100%);   
 }
 
-button:active {
+button:active, .save-img-btn:active {
     background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);    
     box-shadow: 3px 4px rgba(102, 102, 102, 0.068);
     transform: translateY(3px);
 }
 
-.img-editing {
+.meme {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.meme-image {
     border: 2px solid #f3f3f3;
+    border-radius: 5px;
     max-width: 490px; 
     height:auto;
+}
 
+.meme-text {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: impact, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+}
+
+.top {
+    top: 0;
+}
+
+.bottom {
+    bottom: 0;
 }
 @media only screen and (min-width: 600px) {
-    .img-editing{
+    .meme-image{
         align-self: center;
     }
 }
@@ -60,15 +99,15 @@ button:active {
         grid-template: 2rem 2rem / 1fr 1fr;
         gap:17px;
     }
-    .img-editing{
-        place-self: center;    
+    .meme-image{
+        place-self: center;
     }
     form img {
         margin-top: 10px;
         width: 500px;
         height: auto;
     }
-    button {
+    button, .save-img-btn {
         width: 688px;
         place-self: center;
     }

@@ -20,6 +20,7 @@
     border: 2px solid rgba(128, 128, 128, 0.116);
     scroll-snap-align: center;
     cursor: pointer;
+    position: relative;
     /* height: 10rem; */
 }
 
