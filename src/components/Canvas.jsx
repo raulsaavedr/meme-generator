@@ -17,7 +17,7 @@ const Canvas = props => {
       ...prevState,
       img: memeImage
     }))
-  }, [urlImg])
+  }, [urlImg, setMeme])
   useEffect(() => {
     if (width && height && !img) {
       setSpinnerStyle({});
