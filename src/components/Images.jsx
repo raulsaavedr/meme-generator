@@ -1,13 +1,15 @@
 import "../css/Images.css";
 
 function ImagesCarousel(props) {
-
+  
   const images = props.memes.map((meme) => {
     return <img
       key={meme.id}
       onClick={() => props.setMeme(prevState => ({
         ...prevState,
-        urlImg: meme.url
+        urlImg: meme.url,
+        width: meme.width,
+        height: meme.height
       }))}
       src={meme.url}
       className="images"

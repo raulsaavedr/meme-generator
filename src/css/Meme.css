@@ -18,7 +18,7 @@ input {
     padding-left: 10px;
 }
 
-button, .save-img-btn{
+button{
     grid-column: 1 / -1;
     background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);   
     border-radius: 5px;
@@ -31,22 +31,54 @@ button, .save-img-btn{
     text-align: center;
     letter-spacing: -0.07em;
     margin-top: 15px; 
+    cursor: pointer;
 }
 
-button:hover, .save-img-btn:hover {
+
+
+button:hover{
     background: linear-gradient(90.41deg, #140085 1.14%, #3000b6 100%);   
 }
 
-button:active, .save-img-btn:active {
+button:active{
     background: linear-gradient(90.41deg, #1b0691 1.14%, #3b02da 100%);    
     box-shadow: 3px 4px rgba(102, 102, 102, 0.068);
     transform: translateY(3px);
 }
 
-.meme {
+/* .meme {
     position: relative;
     display: flex;
     flex-direction: column;
+} */
+
+/* .meme{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.meme, .save-img-btn-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.save-img-btn-container.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+.save-img-btn-container.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+canvas{
+    border: 2px solid #f3f3f3;
+    border-radius: 5px;
 }
 
 .meme-image {
@@ -107,7 +139,7 @@ button:active, .save-img-btn:active {
         width: 500px;
         height: auto;
     }
-    button, .save-img-btn {
+    button{
         width: 688px;
         place-self: center;
     }

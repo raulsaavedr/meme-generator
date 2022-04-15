@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/Meme.css";
+import Canvas from "./Canvas";
 import ImagesCarousel from "./Images";
 
 export default function Meme() {
@@ -8,32 +9,35 @@ export default function Meme() {
     topText: "",
     bottomText: "",
     urlImg: "",
+    width: 0,
+    height: 0,
+    name: "",
+    img: null
   });
 
   var seedrandom = require("seedrandom");
   var prng = seedrandom();
   function handleGetImage(event) {
     event.preventDefault();
-    setMeme(prevState => ({
-      ...prevState,
-      urlImg: memesData[Math.floor(prng() * memesData.length)].url
-    }));
+    setMeme(prevState => {
+      const randomNum = Math.floor(prng() * memesData.length);
+      console.log(memesData[randomNum].width, memesData[randomNum].height)
+      return {
+        ...prevState,
+        urlImg: memesData[randomNum].url,
+        width: memesData[randomNum].width,
+        height: memesData[randomNum].height,
+      }
+    });
   }
-
-  function handleChangeInputTop(event) {
-    // console.log(event.target.value);
-    setMeme(prevState => ({
-      ...prevState,
-      topText: event.target.value,
-    }));
-  }
-
-  function handleChangeInputBottom(event) {
-    // console.log(event.target.value);
-    setMeme(prevState => ({
-      ...prevState,
-      bottomText: event.target.value,
-    }));
+  function handleChange(event) {
+    const { name, value, type, checked } = event.target
+    setMeme(prevState => {
+      return {
+        ...prevState,
+        [name]: type === "checkbox" ? checked : value
+      }
+    })
   }
 
   useEffect(() => {
@@ -45,32 +49,39 @@ export default function Meme() {
       .then(function (myJson) {
         // console.log(myJson);
         setMemesData(myJson.data.memes);
-        setMeme(prevState => ({
-          ...prevState,
-          urlImg: (myJson.data.memes[
-            Math.floor(Math.random() * myJson.data.memes.length)]
-            .url
-          )
-        }));
+        setMeme(prevState => {
+          const randomNum = Math.floor(Math.random() * myJson.data.memes.length);
+          return {
+            ...prevState,
+            urlImg: myJson.data.memes[randomNum].url,
+            width: myJson.data.memes[randomNum].width,
+            height: myJson.data.memes[randomNum].height,            
+            }
+        });
       });
   }, []);
 
   return (
     <main>
       <form>
-        <input onChange={handleChangeInputTop} type="text" placeholder="Top Text" />
-        <input onChange={handleChangeInputBottom} type="text" placeholder="Bottom Text" />
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder="Top Text"
+          name="topText"
+        />
+        <input
+          onChange={handleChange}
+          type="text" 
+          placeholder="Bottom Text"
+          name="bottomText"
+        />
         <button onClick={handleGetImage}>Get a New random meme image 🖼</button>
       </form>
       {meme.urlImg && <ImagesCarousel memes={memesData} setMeme={setMeme} />}
       <div className="meme">
-        <img src={meme.urlImg} alt="" className="meme-image" />
-        <h2 className="meme-text top">{meme.topText}</h2>
-        <h2 className="meme-text bottom">{meme.bottomText}</h2>
+        <Canvas meme={meme} setMeme={setMeme}/>
       </div>
-      <button className="save-img-btn"> Save meme!</button>
-      {/* <p>{meme.topText}</p>
-      <p>{meme.bottomText}</p> */}
     </main>
   );
 }
