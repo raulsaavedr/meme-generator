@@ -40,6 +40,8 @@ export default function Meme() {
     })
   }
 
+  // Fetch the memes Data from imgflip api and saved it to
+  // the memesData state
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then(function (response) {
@@ -55,7 +57,8 @@ export default function Meme() {
             ...prevState,
             urlImg: myJson.data.memes[randomNum].url,
             width: myJson.data.memes[randomNum].width,
-            height: myJson.data.memes[randomNum].height,            
+            height: myJson.data.memes[randomNum].height,
+            name: myJson.data.memes[randomNum].name, 
             }
         });
       });

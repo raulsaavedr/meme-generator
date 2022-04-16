@@ -37,7 +37,6 @@ const Canvas = props => {
       // Adding custom text
       ctx.lineWidth  = 8;
       ctx.font = `${Math.round(height / 16)}pt Impacto`;
-      // ctx.font = '40pt Impact';
       ctx.strokeStyle = 'black';
       ctx.fillStyle = 'white';
       ctx.textAlign = 'center';
@@ -59,7 +58,7 @@ const Canvas = props => {
         </circle>
       </svg>
       <canvas ref={canvasRef} style={canvasStyle} width={width} height={height} {...otherProps} />
-      <a className="save-img-btn-container nostyle" href={blobImg} target="_blank" rel="noreferrer" download="myFile.png">
+      <a className="save-img-btn-container nostyle" href={blobImg} target="_blank" rel="noreferrer" download={`${meme.name} - Meme Generator.png`}>
         <button onClick={handleDownloadImage}> Save meme!</button>
       </a>
     </>

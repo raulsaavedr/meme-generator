@@ -9,7 +9,8 @@ function ImagesCarousel(props) {
         ...prevState,
         urlImg: meme.url,
         width: meme.width,
-        height: meme.height
+        height: meme.height,
+        name: meme.name,
       }))}
       src={meme.url}
       className="images"
